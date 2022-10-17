@@ -12,7 +12,7 @@ def definevar(prompt, typeof, breaker = False):
 
 width = definevar("Enter the width: ", "int")
 height = definevar("Enter the height: ", "int")
-words = definevar("Enter the words, seperated with \", \" (all spaces get removed in final word): ", "str").lower().replace(" ","").split(", ")
+words = definevar("Enter the words, seperated with \", \" (all spaces get removed in final word): ", "str").lower().split(", ")
 lettersstr = definevar("Enter valid letters in one string, or leave blank for only a-z: ", "str", True)
 letters = [char for char in ("abcdefghijklmnopqrstuvwxyz" if not lettersstr else lettersstr.lower())]
 
@@ -22,6 +22,7 @@ for i in range(height):
 
 checkamount = 1000
 for i in words:
+    i = i.replace(" ","")
     validchecks = checkamount
     amountofchar = len(i)
     good = 0
@@ -77,4 +78,4 @@ for i in board:
     output += "\n"
 
 print(output)
-input("Press enter to close.")
+input("Press enter to close.\n")
